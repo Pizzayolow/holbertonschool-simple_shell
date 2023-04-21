@@ -26,8 +26,10 @@ int parse(char *chaine)
 	ret = access(token, X_OK);
 	if (ret == -1)
 	{
+		free(program);
 		return (0);
 	}
+	
 
 	
 	while (token)
@@ -37,7 +39,7 @@ int parse(char *chaine)
 		token = strtok(NULL, " ");
 	}	
 
-	list = malloc(sizeof(char *) * nb_arg + 1);
+	list = malloc(sizeof(char *) * (nb_arg + 1));
 	if (list == NULL)
 	{
 		free(program);
@@ -54,7 +56,6 @@ int parse(char *chaine)
 		temp = temp->next;
 		i++;
 	}
-	i++;
 	list[i] = NULL;
 	temp = NULL;
 
