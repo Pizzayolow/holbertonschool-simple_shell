@@ -6,6 +6,8 @@
 #include <sys/wait.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/types.h>
+#include <fcntl.h>
 
 extern char **environ;
 
@@ -23,6 +25,6 @@ int parse(char *argv);
 char *_strdup(char *str);
 int exec(char **list);
 void free_array(char **list, int nb_arg);
-
+char **copy_environ(void);
 
 #endif
