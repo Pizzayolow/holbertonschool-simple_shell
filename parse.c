@@ -13,15 +13,17 @@ int parse(char *chaine)
 	node_t *head = NULL;
 	node_t *temp = NULL;
 	
+	
+	
 
 	char *program = _strdup(chaine);
 	if (program == NULL)
 	{
 		return (-1);
 	}
-
+	
 	token = strtok(program, " ");
-	ret = access(program, X_OK);
+	ret = access(token, X_OK);
 	if (ret == -1)
 	{
 		return (0);
