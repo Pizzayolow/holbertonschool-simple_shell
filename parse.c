@@ -24,7 +24,6 @@ int parse(char *chaine)
 	ret = access(program, X_OK);
 	if (ret == -1)
 	{
-		fprintf(stderr, "access : %s\n", strerror(errno));
 		return (0);
 	}
 
