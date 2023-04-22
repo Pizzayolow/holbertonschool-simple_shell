@@ -20,6 +20,7 @@ int main(void)
 		input = getline(&buffer, &size, stdin);
 		if (input == -1)
 		{
+			free(buffer);
 			break;
 		}
 
