@@ -18,6 +18,12 @@ int parse(char *chaine)
 	}
 	
 	token = strtok(program, " ");
+	if (token == NULL)
+	{
+		free(program);
+		return (0);
+	}
+
 	ret = access(token, X_OK);
 	if (ret == -1)
 	{
