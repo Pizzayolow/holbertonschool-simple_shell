@@ -1,9 +1,7 @@
 #include "main.h"
 
 int parse(char *chaine)
-{
-	
-	
+{		
 	char **list = NULL;
 	int i = 0;
 	int ret = 0;
@@ -12,9 +10,6 @@ int parse(char *chaine)
 
 	node_t *head = NULL;
 	node_t *temp = NULL;
-	
-	
-	
 
 	char *program = _strdup(chaine);
 	if (program == NULL)
@@ -29,8 +24,6 @@ int parse(char *chaine)
 		free(program);
 		return (0);
 	}
-	
-
 	
 	while (token)
 	{
@@ -47,7 +40,6 @@ int parse(char *chaine)
 		return (-1);
 	}
 
-	
 	temp = head;
 	
 	while (i < nb_arg)

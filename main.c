@@ -24,7 +24,6 @@ int main(void)
 			break;
 		}
 
-
 		if (buffer[input - 1] == '\n')
 		{
 			buffer[input - 1] = '\0';
