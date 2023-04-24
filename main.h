@@ -25,6 +25,5 @@ int parse(char *argv);
 char *_strdup(char *str);
 int exec(char **list);
 void free_array(char **list, int nb_arg);
-char **copy_environ(void);
 
 #endif
