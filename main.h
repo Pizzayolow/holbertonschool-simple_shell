@@ -24,6 +24,13 @@ node_t *add_node_end(node_t **head, char *str);
 int parse(char *argv);
 char *_strdup(char *str);
 int exec(char **list);
-void free_array(char **list, int nb_arg);
+int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
+char *_getenv(char *name);
+void *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
+char *shortcut(char *token);
+int _strncmp(const char *s1, const char *s2, size_t size);
 
 #endif

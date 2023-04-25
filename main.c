@@ -8,9 +8,12 @@ int main(void)
 
 	while (input != -1)
 	{
+		
 		char *buffer = NULL;
 		size_t size = 0;
 		input = 0;
+
+		
 
 		if (is_interactive)
 		{
