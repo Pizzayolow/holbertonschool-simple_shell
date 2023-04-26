@@ -48,6 +48,8 @@ int parse(char *chaine, char *exe)
 		if (path_env == NULL || is_empty(path_env) != 0)
 		{
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
+			free(list);
+			free_nodes(head);
 			exit(127);
 		}
 
@@ -75,17 +77,16 @@ int parse(char *chaine, char *exe)
 				{
 					list[0] = prog;
 					flag = 1;
-					free(path);
 					break;
 				}
 				/* printf("[DEBUG] dir = %s | prog = adresse %p | %s \n", dir,prog, prog);  */
 				free(prog);
 				dir = strtok(NULL, ":");
 		}
+		free(path);
 		if (flag == 0)
 		{
 			fprintf(stderr, "%s 1: %s: not found\n", exe, list[0]);
-			return (127);
 		}
 	}
 	else
@@ -99,9 +100,11 @@ int parse(char *chaine, char *exe)
 		exec(list);
 		free(prog);
 	}
-
+	
 	free(list);
+	printf("toto avant free node\n");
 	free_nodes(head);
+	printf("toto apres free node\n");
 	
 
 	return (0);
