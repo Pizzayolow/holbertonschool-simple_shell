@@ -12,6 +12,7 @@ int parse(char *chaine, char *exe)
 	char *path_env = NULL;
 	char *dir = NULL;
 	char *prog = NULL;
+	int flag = 0;
 
 	node_t *head = NULL;
 	node_t *temp = NULL;
@@ -44,10 +45,10 @@ int parse(char *chaine, char *exe)
 	if (ret != 0)
 	{
 		path_env = _getenv("PATH");
-		if (path_env == NULL)
+		if (path_env == NULL || is_empty(path_env) != 0)
 		{
-			fprintf(stderr, "%s 1: ls: not found\n", exe);
-			return (-1);
+			fprintf(stderr, "%s 1: %s: not found\n", exe, list[0]);
+			return (127);
 		}
 
 		path = strdup(path_env);
@@ -55,8 +56,6 @@ int parse(char *chaine, char *exe)
 		{
 			return (-1);
 		}
-
-		
 
 		dir = strtok(path, ":");
 		while (dir != NULL)
@@ -75,21 +74,32 @@ int parse(char *chaine, char *exe)
 				if (ret == 0)
 				{
 					list[0] = prog;
+					flag = 1;
 					free(path);
 					break;
 				}
-				/* printf("[DEBUG] dir = %s | prog = %s \n", dir, prog); */
+				/* printf("[DEBUG] dir = %s | prog = adresse %p | %s \n", dir,prog, prog);  */
 				free(prog);
 				dir = strtok(NULL, ":");
 		}
-		
+		if (flag == 0)
+		{
+			fprintf(stderr, "%s 1: %s: not found\n", exe, list[0]);
+			return (127);
+		}
+	}
+	else
+	{
+		flag = 1;
 	}
 
-	exec(list);
-	if (prog != NULL)
+
+	if (flag == 1)
 	{
+		exec(list);
 		free(prog);
 	}
+
 	free(list);
 	free_nodes(head);
 	
