@@ -47,6 +47,7 @@ int parse(char *chaine, char *exe)
 		path_env = _getenv("PATH");
 		if (path_env == NULL || is_empty(path_env) != 0)
 		{
+			free(chaine);
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
 			free(list);
 			free_nodes(head);
