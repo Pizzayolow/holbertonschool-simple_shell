@@ -7,7 +7,6 @@ int main(int argc, char **argv)
 	char *exe = argv[0];
 
 	(void)argc;
-
 	while (input != -1)
 	{		
 		char *buffer = NULL;
