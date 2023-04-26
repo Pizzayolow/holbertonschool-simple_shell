@@ -10,7 +10,7 @@ node_t *add_node_end(node_t **head, char *str)
 		return (NULL);
 	}
 
-	new_node->str = _strdup(str);
+	new_node->str = strdup(str);
 	new_node->next = NULL;
 
 	if (*head == NULL)

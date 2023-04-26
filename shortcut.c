@@ -5,7 +5,7 @@ char *shortcut(char *token)
 
     char *s1 = NULL;
     char *s = NULL;
-    char *path = _getenv("PATH"); // a faire
+    char *path = _getenv("PATH");
     int ret_path = 0;
 
     s1 = _strdup(strtok(path, ":"));

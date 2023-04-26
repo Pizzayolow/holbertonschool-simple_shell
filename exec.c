@@ -5,7 +5,6 @@ int exec(char **list)
 	int status = 0;
 	int error = 0;
 	pid_t child;
-	
 
 	child = fork();
 	if (child == -1)
@@ -19,7 +18,7 @@ int exec(char **list)
 		error = execve(list[0], list, environ);
 		if (error == -1)
 		{
-			fprintf(stderr, "exceve = %s\n", strerror(errno));
+			fprintf(stderr, "%s\n", strerror(errno));
 		}
 		
 	}

@@ -9,9 +9,9 @@ int parse(char *chaine)
 
 	int ret = 0;
 	char *path = NULL;
-	char *s1 = NULL;
-	char *path_tmp = NULL;
-	char *new_prog = NULL;
+	char *path_env = NULL;
+	char *dir = NULL;
+	char *prog = NULL;
 	
 
 	node_t *head = NULL;
@@ -39,50 +39,52 @@ int parse(char *chaine)
 		temp = temp->next;
 		i++;
 	}
-	list[i] = NULL; // c'est pour EXEC
+	list[i] = NULL;
 
 	ret = access(list[0], X_OK);
 	if (ret != 0)
 	{
-		
-		path_tmp = _getenv("PATH");
-		printf("path tmp = [%s]\n", path_tmp);
-		path = _strdup(path_tmp);
-		printf("path = [%s]\n", path);
-		s1 = strtok(path, ":");
-		printf("apres strtok, que vaut path = %s \n", path);
-		while (path != NULL)
+		path_env = _getenv("PATH");
+		if (path_env == NULL)
 		{
-			new_prog = malloc((_strlen(s1) + 1 + _strlen(list[0])) * sizeof(char));
-			if (new_prog == NULL)
+			return (-1);
+		}
+
+		path = strdup(path_env);
+		if (path == NULL)
+		{
+			return (-1);
+		}
+
+		dir = strtok(path, ":");
+		while (dir != NULL)
+		{
+			prog = malloc((strlen(dir) + strlen(list[0]) + 2) * sizeof(char));
+			if (prog == NULL)
 			{
+				free(path);
 				return (-1);
 			}
-			new_prog = _strcat(new_prog, s1);
-			new_prog = _strcat(new_prog, "/");
-			new_prog = _strcat(new_prog, list[0]);
-			printf("new_prog = %s\n", new_prog);
-			ret = access(new_prog, X_OK);
-			if (ret == 0)
-			{
-				print("YOUPI : %s\n", new_prog);
-				list[0] = new_prog;
-				break;
-			}
-			path = strtok(NULL, ":");
-			s1 = strtok(NULL, ":");
-		}
-		//free(path);
-	}
 
-	printf("list[0] = %s \n", list[0]);
-	printf("list[1] = %s \n", list[1]);
+				strcpy(prog, dir);
+				strcat(prog, "/");
+				strcat(prog, list[0]);
+				ret = access(prog, X_OK);
+				if (ret == 0)
+				{
+					list[0] = prog;
+					free(path);
+					break;
+				}
+				/* printf("[DEBUG] dir = %s | prog = %s \n", dir, prog); */
+				free(prog);
+				dir = strtok(NULL, ":");
+		}
+		
+	}
 
 	exec(list);
 
-	
-	//printf("avant free s : %p, valeur : [%s]\n", s, s);
-	//free(s);
 	free(list);
 	free_nodes(head);
 	

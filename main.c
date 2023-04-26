@@ -7,13 +7,10 @@ int main(void)
 	int is_interactive = isatty(STDIN_FILENO);
 
 	while (input != -1)
-	{
-		
+	{		
 		char *buffer = NULL;
 		size_t size = 0;
 		input = 0;
-
-		
 
 		if (is_interactive)
 		{
@@ -31,6 +28,7 @@ int main(void)
 		{
 			buffer[input - 1] = '\0';
 		}
+		
 		parse(buffer);
 		free(buffer);
 	}
