@@ -102,9 +102,7 @@ int parse(char *chaine, char *exe)
 	}
 	
 	free(list);
-	printf("toto avant free node\n");
 	free_nodes(head);
-	printf("toto apres free node\n");
 	
 
 	return (0);
