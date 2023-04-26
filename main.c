@@ -4,8 +4,9 @@ int main(int argc, char **argv)
 {
 	int input = 0;
 	int is_interactive = isatty(STDIN_FILENO);
-	(void)argc;
 	char *exe = argv[0];
+
+	(void)argc;
 
 	while (input != -1)
 	{		
