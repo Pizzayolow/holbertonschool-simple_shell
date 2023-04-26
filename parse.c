@@ -86,7 +86,10 @@ int parse(char *chaine, char *exe)
 	}
 
 	exec(list);
-
+	if (prog != NULL)
+	{
+		free(prog);
+	}
 	free(list);
 	free_nodes(head);
 	
