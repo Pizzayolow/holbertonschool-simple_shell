@@ -13,6 +13,7 @@ int parse(char *chaine, char *exe)
 	char *dir = NULL;
 	char *prog = NULL;
 	int flag = 0;
+	char *path1 = NULL;
 
 	node_t *head = NULL;
 	node_t *temp = NULL;
@@ -45,7 +46,8 @@ int parse(char *chaine, char *exe)
 	if (ret != 0)
 	{
 		path_env = _getenv("PATH");
-		if (path_env == NULL || is_empty(path_env) != 0)
+		path1 = _getenv("PATH1");
+		if (path_env == NULL || is_empty(path_env) != 0 || path1 != NULL)
 		{
 			free(chaine);
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
