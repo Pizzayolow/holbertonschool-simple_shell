@@ -1,5 +1,15 @@
 #include "main.h"
 
+int is_empty(const char *str) {
+    while (*str != '\0') {
+        if (!isspace(*str))
+            return 0;
+        str++;
+    }
+    return 1;
+}
+
+
 char *_getenv(char *name) {
   int i = 0;
   size_t size_len = strlen(name);

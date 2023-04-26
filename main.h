@@ -8,9 +8,9 @@
 #include <string.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 extern char **environ;
-
 
 typedef struct node_s
 {
@@ -19,12 +19,10 @@ typedef struct node_s
 } node_t;
 void free_nodes(node_t *head);
 node_t *add_node_end(node_t **head, char *str);
-
 int parse(char *chaine, char *exe);
-
 int exec(char **list);
-
 char *_getenv(char *name);
-char *shortcut(char *token);
+int is_empty(const char *str);
+
 
 #endif
