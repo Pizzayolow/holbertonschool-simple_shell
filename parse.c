@@ -48,7 +48,7 @@ int parse(char *chaine, char *exe)
 		if (path_env == NULL || is_empty(path_env) != 0)
 		{
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
-			return (127);
+			exit(127);
 		}
 
 		path = strdup(path_env);
