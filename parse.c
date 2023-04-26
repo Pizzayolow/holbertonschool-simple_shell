@@ -87,7 +87,11 @@ int parse(char *chaine, char *exe)
 		free(path);
 		if (flag == 0)
 		{
-			fprintf(stderr, "%s 1: %s: not found\n", exe, list[0]);
+			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
+			free(chaine);
+			free(list);
+			free_nodes(head);
+			exit(127);
 		}
 	}
 	else

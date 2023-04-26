@@ -7,6 +7,7 @@ int exec(char **list)
 	pid_t child;
 
 	child = fork();
+	
 	if (child == -1)
 	{
 		perror("Error:");
