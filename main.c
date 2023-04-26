@@ -1,10 +1,12 @@
 #include "main.h"
 
 
-int main(void)
+int main(int argc, char **argv)
 {
 	int input = 0;
 	int is_interactive = isatty(STDIN_FILENO);
+	(void)argc;
+	char *exe = argv[0];
 
 	while (input != -1)
 	{		
@@ -29,7 +31,7 @@ int main(void)
 			buffer[input - 1] = '\0';
 		}
 		
-		parse(buffer);
+		parse(buffer, exe);
 		free(buffer);
 	}
 	

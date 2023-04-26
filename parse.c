@@ -1,6 +1,6 @@
 #include "main.h"
 
-int parse(char *chaine)
+int parse(char *chaine, char *exe)
 {		
 	char **list = NULL;
 	int i = 0;
@@ -12,7 +12,6 @@ int parse(char *chaine)
 	char *path_env = NULL;
 	char *dir = NULL;
 	char *prog = NULL;
-	
 
 	node_t *head = NULL;
 	node_t *temp = NULL;
@@ -31,7 +30,7 @@ int parse(char *chaine)
 		free_nodes(head);
 		return (-1);
 	}
-
+	
 	temp = head;
 	while (i < nb_arg)
 	{
@@ -47,6 +46,7 @@ int parse(char *chaine)
 		path_env = _getenv("PATH");
 		if (path_env == NULL)
 		{
+			fprintf(stderr, "%s 1: ls: not found\n", exe);
 			return (-1);
 		}
 
@@ -55,6 +55,8 @@ int parse(char *chaine)
 		{
 			return (-1);
 		}
+
+		
 
 		dir = strtok(path, ":");
 		while (dir != NULL)
