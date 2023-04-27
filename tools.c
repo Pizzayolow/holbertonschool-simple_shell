@@ -9,7 +9,6 @@ int is_empty(const char *str) {
     return 1;
 }
 
-
 char *_getenv(char *name, char **envp) {
   int i = 0;
   size_t size_len = strlen(name);

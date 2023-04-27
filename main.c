@@ -13,6 +13,7 @@ int main(int argc, char **argv, char **envp)
 		char *buffer = NULL;
 		size_t size = 0;
 		input = 0;
+		
 
 		if (is_interactive)
 		{
@@ -23,7 +24,7 @@ int main(int argc, char **argv, char **envp)
 		if (input == -1)
 		{
 			free(buffer);
-			exit(2);
+			break;
 		}
 
 		if (buffer[input - 1] == '\n')
@@ -38,7 +39,17 @@ int main(int argc, char **argv, char **envp)
 				free(buffer);
 				exit(0);
 			}
-			parse(buffer, exe, environ);
+			if (strcmp(buffer,"env") == 0)
+			{
+					for (; *environ; environ++)
+					{
+						printf("%s\n", *environ);
+					}
+			}
+			else
+			{
+				parse(buffer, exe, environ);
+			}
 		}
 		free(buffer);
 	}
