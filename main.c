@@ -23,7 +23,7 @@ int main(int argc, char **argv, char **envp)
 		if (input == -1)
 		{
 			free(buffer);
-			break;
+			exit(2);
 		}
 
 		if (buffer[input - 1] == '\n')
@@ -36,7 +36,7 @@ int main(int argc, char **argv, char **envp)
 			if (strcmp(buffer,"exit") == 0)
 			{
 				free(buffer);
-				exit(2);
+				exit(0);
 			}
 			parse(buffer, exe, environ);
 		}
