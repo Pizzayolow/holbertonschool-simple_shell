@@ -35,7 +35,8 @@ int main(int argc, char **argv, char **envp)
 		{
 			if (strcmp(buffer,"exit") == 0)
 			{
-				exit(0);
+				free(buffer);
+				exit(2);
 			}
 			parse(buffer, exe, environ);
 		}
