@@ -10,8 +10,6 @@
 #include <fcntl.h>
 #include <ctype.h>
 
-extern char **environ;
-
 typedef struct node_s
 {
 	char *str;
@@ -19,9 +17,9 @@ typedef struct node_s
 } node_t;
 void free_nodes(node_t *head);
 node_t *add_node_end(node_t **head, char *str);
-int parse(char *chaine, char *exe);
-int exec(char **list);
-char *_getenv(char *name);
+int parse(char *chaine, char *exe, char **envp);
+int exec(char **list, char **envp);
+char *_getenv(char *name, char **envp);
 int is_empty(const char *str);
 
 

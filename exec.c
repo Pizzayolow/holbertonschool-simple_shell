@@ -1,10 +1,11 @@
 #include "main.h"
 
-int exec(char **list)
+int exec(char **list, char **environ)
 {
 	int status = 0;
 	int error = 0;
 	pid_t child;
+	char **envp = environ;
 
 	child = fork();
 	
@@ -16,7 +17,7 @@ int exec(char **list)
 	if (child == 0)
 	{
 		
-		error = execve(list[0], list, environ);
+		error = execve(list[0], list, envp);
 		if (error == -1)
 		{
 			fprintf(stderr, "%s\n", strerror(errno));

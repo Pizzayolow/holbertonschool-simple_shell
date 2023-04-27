@@ -10,9 +10,10 @@ int is_empty(const char *str) {
 }
 
 
-char *_getenv(char *name) {
+char *_getenv(char *name, char **envp) {
   int i = 0;
   size_t size_len = strlen(name);
+  char **environ = envp;
 
   if (name == NULL)
   {
