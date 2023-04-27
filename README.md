@@ -1,14 +1,14 @@
-# Project SIMPLE SHELL d'Holberton School
+# Holberton School's Simple Shell Project
 
-Ce projet consiste à créer un Shell en utilisant le language C.
+This project consists in creating a Shell using the C language.
 
-### Prérequis:
+### Requirements:
 
 Clone repository using HTTPS :
 
 https://github.com/Pizzayolow/holbertonschool-simple_shell.git
 
-### Pour exécuter ce programme, vous devez disposer des bibliothèques suivantes :
+### To run this program, you need the following libraries:
 ```
 - <stdio.h>
 - <stdlib.h>
@@ -29,15 +29,15 @@ Installed gcc (GNU Compiler Collection) version 9.4.0 or newer
 
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
-## Pour executer le programme, tapez simplement :
+## To run the program, simply type :
 
 ./hsh
 
-## Comme pour le Shell original vous pouvez spécifier des arguments en ligne de commande pour modifier le comportement du programme.
+## As with the original Shell you can specify command line arguments to change the behavior of the program.
 
 par ex : "ls -la"
 
-### Pour effectuer ce projet nous avons utilisé les fonctions et appels systèmes suivants :
+### To carry out this project we used the following functions and system calls:
 ```
 -   all functions from strings.h
 -   `access`  (man 2 access)
@@ -104,9 +104,9 @@ par ex : "ls -la"
     root@id:/holbertonschool-simple_shell#
     
 ---
-## Fonctionalités :
+## Features :
 
-Notre programme effectue les taches basiques du Shell, comme l'exécutable 'ls'.
+Our program performs basic Shell tasks, like the 'ls' executable.
 
 ### Flowchart
 <iframe src="https://drive.google.com/file/d/156306HsiKn8xKdQN5oSsalINcAQZTZ5q/preview" width="900" height="800" allow="autoplay"></iframe>
