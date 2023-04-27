@@ -108,4 +108,7 @@ Our program performs basic Shell tasks, like the 'ls' executable.
 ### Flowchart
 <iframe src="https://drive.google.com/file/d/156306HsiKn8xKdQN5oSsalINcAQZTZ5q/preview" width="900" height="800" allow="autoplay"></iframe>
 
+### Usage of the man page , type this command :
+groff -man -Tutf8 simple_shell.1 | less
+
 Project by [Valentin Ralliard](https://github.com/Pizzayolow) and [Simon Descombes](https://github.com/SimonDesc)

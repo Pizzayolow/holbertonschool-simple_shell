@@ -1,0 +1,53 @@
+." Man page for simple_shell
+.TH SIMPLE_SHELL 1 "April 27, 2023" "Version 1.0" "User Manual for simple_shell"
+.SH NAME
+simple_shell - a simple shell for learning and experimentation
+.SH SYNOPSIS
+.B simple_shell
+.SH DESCRIPTION
+.B simple_shell
+is a simple shell written in C as part of the Holberton School curriculum. The shell is designed for educational purposes and provides a basic set of shell features, including the ability to execute commands and manage processes.
+.SH USAGE
+To use the simple shell, just run the executable:
+.B simple_shell
+The shell will display a prompt, waiting for your input. You can enter commands, and the shell will execute them.
+.SH COMMANDS
+The simple shell supports built-in commands and external commands. Built-in commands are executed directly by the shell, while external commands are executed by creating a new process.
+.IP "\fBexit [status]\fR"
+Exit the shell with an optional status. (built-in)
+.IP "\fBenv\fR"
+Display the environment variables. (built-in)
+.SH EXAMPLES
+Using the simple shell to run a command:
+.IP "1."
+$ simple_shell
+$> ls
+file1 file2 file3
+.IP "2."
+$ simple_shell
+$> env
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+.IP "3."
+$ simple_shell
+$> ls -l
+total 0
+-rw-r--r-- 1 user group 0 Apr 27 12:34 file1
+-rw-r--r-- 1 user group 0 Apr 27 12:34 file2
+-rw-r--r-- 1 user group 0 Apr 27 12:34 file3
+.IP "4."
+$ simple_shell
+$> ls /usr/local/bin
+executable1 executable2
+.SH AUTHORS
+Original authors are Pizzayolow and collaborators. For more information, please visit the GitHub repository at https://github.com/Pizzayolow/holbertonschool-simple_shell.
+.SH BUGS
+To report bugs or request features, please open an issue on the GitHub repository.
+.SH LICENSE
+The simple_shell is released under the terms of the MIT License. For more information, see the LICENSE file in the GitHub repository.
+.SH SEE ALSO
+.B sh (1),
+.B bash (1),
+.B csh (1),
+.B tcsh (1),
+.B ksh (1),
+.B zsh (1)
