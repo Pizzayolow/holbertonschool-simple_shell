@@ -82,28 +82,25 @@ par ex : "ls -la"
 
 ````
 ### Valgrind
-    root@id:/holbertonschool-simple_shell# valgrind ./hsh
-    ==19647== Memcheck, a memory error detector
-    ==19647== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-    ==19647== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-    ==19647== Command: ./hsh
-    ==19647==
-    /bin/ls
-	README.md  _getline.c  _strtok.c          hsh     path_values.c   
-	simple_shell.h
-	_free.c    _strfunc.c  execute_command.c  main.c  search_path1.c
-    ==19647==
-    ==19647== HEAP SUMMARY:
-    ==19647== in use at exit: 0 bytes in 0 blocks
-    ==19647== total heap usage: 142 allocs, 142 frees, 18,486 bytes allocated
-    ==19647==
-    ==19647== All heap blocks were freed -- no leaks are possible
-    ==19647==
-    ==19647== For lists of detected and suppressed errors, rerun with: -s
-    ==19647== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-    root@id:/holbertonschool-simple_shell#
-    
----
+````
+root@bd6c50b5f513:/holbertonschool-simple_shell# valgrind ./hsh
+==2707== Memcheck, a memory error detector
+==2707== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2707== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==2707== Command: ./hsh
+==2707==
+$ /bin/ls
+exec.c  hsh  main.c  main.h  nodes.c  parse.c  path.txt  README.md  test  tools.c  vgcore.161  vgcore.162
+$ ==2707==
+==2707== HEAP SUMMARY:
+==2707==     in use at exit: 0 bytes in 0 blocks
+==2707==   total heap usage: 7 allocs, 7 frees, 2,328 bytes allocated
+==2707==
+==2707== All heap blocks were freed -- no leaks are possible
+==2707==
+==2707== For lists of detected and suppressed errors, rerun with: -s
+==2707== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+````
 ## Features :
 
 Our program performs basic Shell tasks, like the 'ls' executable.
