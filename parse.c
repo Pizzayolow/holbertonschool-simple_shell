@@ -46,7 +46,7 @@ int parse(char *chaine, char *exe, char **environ)
 	ret = access(list[0], X_OK);
 	if (ret != 0)
 	{
-		path_env = _getenv("PATH", envp);
+		path_env = _getenv("PATH=", envp);
 		if (path_env == NULL || is_empty(path_env) != 0)
 		{
 				free(chaine);
