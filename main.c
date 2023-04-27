@@ -33,6 +33,10 @@ int main(int argc, char **argv, char **envp)
 		
 		if (is_empty(buffer)== 0)
 		{
+			if (strcmp(buffer,"exit") == 0)
+			{
+				exit(0);
+			}
 			parse(buffer, exe, environ);
 		}
 		free(buffer);
