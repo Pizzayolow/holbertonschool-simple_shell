@@ -1,3 +1,11 @@
+/**
+* main - Entry point of the program
+* @argc: The number of arguments passed to the program
+* @argv: An array of strings containing the arguments passed to the program
+* @envp: An array of strings containing the program's environment variables
+*
+* Return: 0 on success, non-zero value on failure
+*/
 #include "main.h"
 
 int main(int argc, char **argv, char **envp)
@@ -56,5 +64,3 @@ int main(int argc, char **argv, char **envp)
 	
 	return (0);
 }
-
-

@@ -1,3 +1,10 @@
+/**
+* add_node_end - Adds a new node at the end of a linked list
+* @head: A pointer to a pointer to the head of the linked list
+* @str: The string to be stored in the new node
+*
+* Return: A pointer to the head of the linked list
+*/
 #include "main.h"
 node_t *add_node_end(node_t **head, char *str)
 {
@@ -29,6 +36,10 @@ node_t *add_node_end(node_t **head, char *str)
 	return (*head);
 }
 
+/**
+* free_nodes - Frees memory allocated for each node in a linked list
+* @head: A pointer to the head of the linked list
+*/
 void free_nodes(node_t *head)
 {
     node_t *temp = NULL;

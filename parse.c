@@ -1,3 +1,11 @@
+/**
+* parse - Parses a command and executes it
+* @chaine: The command string to parse
+* @exe: The name of the executable file
+* @environ: An array of strings containing the environment variables
+*
+* Return: 0 on success, -1 on failure
+*/
 #include "main.h"
 
 int parse(char *chaine, char *exe, char **environ)

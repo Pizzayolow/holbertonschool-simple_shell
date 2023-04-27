@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+* exec - Executes a command
+* @list: An array of strings containing the command and its arguments
+* @environ: An array of strings containing the environment variables
+*
+* Return: 0 on success, 1 on failure
+*/
 int exec(char **list, char **environ)
 {
 	int status = 0;

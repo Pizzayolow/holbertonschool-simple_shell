@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+* is_empty - Checks if a string is empty or contains only whitespace
+* @str: The string to check
+*
+* Return: 1 if the string is empty or contains only whitespace, 0 otherwise
+*/
 int is_empty(const char *str) {
     while (*str != '\0') {
         if (!isspace(*str))
@@ -9,6 +15,14 @@ int is_empty(const char *str) {
     return 1;
 }
 
+/**
+* _getenv - Gets the value of an environment variable
+* @name: The name of the environment variable
+* @envp: An array of strings containing the environment variables
+*
+* Return: A pointer to the value of the environment variable, or NULL if the
+* variable is not found
+*/
 char *_getenv(char *name, char **envp) {
   int i = 0;
   size_t size_len = strlen(name);
