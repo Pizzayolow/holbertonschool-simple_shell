@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "main.h": "c"
+        "main.h": "c",
+        "errno.h": "c",
+        "fcntl.h": "c",
+        "wait.h": "c"
     }
 }

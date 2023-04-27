@@ -7,7 +7,6 @@
 #include <errno.h>
 #include <string.h>
 #include <sys/types.h>
-#include <fcntl.h>
 #include <ctype.h>
 
 typedef struct node_s
