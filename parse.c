@@ -8,116 +8,34 @@
 */
 #include "main.h"
 
-int parse(char *chaine, char *exe, char **environ)
+int parse(char *chaine, int input, char *exe, char **environp)
 {		
 	char **list = NULL;
-	int i = 0;
+	int i = 0, nb_arg = 0;
 	char *token = NULL;
-	int nb_arg = 0;
+	node_t *head = NULL, *temp = NULL;
 
-	char **envp = environ;
-	int ret = 0;
-	char *path = NULL;
-	char *path_env = NULL;
-	char *dir = NULL;
-	char *prog = NULL;
-	int flag = 0;
-	
-
-	node_t *head = NULL;
-	node_t *temp = NULL;
-
+	(chaine[input - 1] == '\n') ? (chaine[input - 1] = '\0') : 0;
 	token = strtok(chaine, " ");
-	while (token)
+	for (; token; nb_arg++)
 	{
 		add_node_end(&head, token);
-		nb_arg++;
 		token = strtok(NULL, " ");
 	}	
-
 	list = malloc(sizeof(char *) * (nb_arg + 1));
 	if (list == NULL)
 	{
 		free_nodes(head);
 		return (-1);
 	}
-	
 	temp = head;
-	while (i < nb_arg)
+	for (i = 0; i < nb_arg; i++)
 	{
 		list[i] = temp->str;
 		temp = temp->next;
-		i++;
 	}
 	list[i] = NULL;
-
-	ret = access(list[0], X_OK);
-	if (ret != 0)
-	{
-		path_env = _getenv("PATH=", envp);
-		if (path_env == NULL || is_empty(path_env) != 0)
-		{
-				free(chaine);
-				fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
-				free(list);
-				free_nodes(head);
-				exit(127);
-		}
-
-		path = strdup(path_env);
-		if (path == NULL)
-		{
-			return (-1);
-		}
-
-		dir = strtok(path, ":");
-		while (dir != NULL)
-		{
-			prog = malloc((strlen(dir) + strlen(list[0]) + 2) * sizeof(char));
-			if (prog == NULL)
-			{
-				free(path);
-				return (-1);
-			}
-
-				strcpy(prog, dir);
-				strcat(prog, "/");
-				strcat(prog, list[0]);
-				ret = access(prog, X_OK);
-				if (ret == 0)
-				{
-					list[0] = prog;
-					flag = 1;
-					break;
-				}
-				free(prog);
-				dir = strtok(NULL, ":");
-		}
-		free(path);
-		if (flag == 0)
-		{
-			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
-			free(chaine);
-			free(list);
-			free_nodes(head);
-			exit(127);
-		}
-	}
-	else
-	{
-		flag = 1;
-	}
-
-
-	if (flag == 1)
-	{
-		exec(list, envp);
-		free(prog);
-	}
-	
-	free(list);
+	entry(list, exe, environp);
 	free_nodes(head);
-	
-
 	return (0);
 }

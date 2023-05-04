@@ -16,26 +16,35 @@ int is_empty(const char *str) {
 }
 
 /**
-* _getenv - Gets the value of an environment variable
+* _getenvdup - Gets the value of an environment variable
 * @name: The name of the environment variable
 * @envp: An array of strings containing the environment variables
 *
-* Return: A pointer to the value of the environment variable, or NULL if the
-* variable is not found
+* Return: A duplicate pointer to the value of the environment variable,
+* or NULL if the variable is not found
 */
-char *_getenv(char *name, char **envp) {
+char *_getenvdup(char *name, char **environp)
+{
   int i = 0;
   size_t size_len = strlen(name);
-  char **environ = envp;
+  char *path_env = NULL;
+  char *path = NULL;
 
   if (name == NULL)
-  {
 	  return (NULL);
-  }
 
-  for (i = 0; environ[i] != NULL; i++) {
-    if (strncmp(name, environ[i], size_len) == 0) {
-      return environ[i] + size_len + 1;
+  for (i = 0; environp[i] != NULL; i++)
+  {
+    if (strncmp(name, environp[i], size_len) == 0)
+    {
+       path_env = environp[i] + size_len + 1;
+       path = strdup(path_env);
+       if (path == NULL)
+       {
+	       free(path);
+	       return (NULL);
+       }
+       return (path);
     }
   }
   return (NULL);

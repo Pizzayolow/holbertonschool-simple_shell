@@ -23,13 +23,11 @@ int exec(char **list, char **environ)
 	}
 	if (child == 0)
 	{
-		
 		error = execve(list[0], list, envp);
 		if (error == -1)
 		{
 			fprintf(stderr, "%s\n", strerror(errno));
 		}
-		
 	}
 	else
 	{
