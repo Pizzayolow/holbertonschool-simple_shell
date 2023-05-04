@@ -15,7 +15,7 @@ int exec(char **list, char **environ)
 	char **envp = environ;
 
 	child = fork();
-	
+
 	if (child == -1)
 	{
 		perror("Error:");
@@ -33,7 +33,5 @@ int exec(char **list, char **environ)
 	{
 		wait(&status);
 	}
-	
-
 	return (0);
 }

@@ -1,12 +1,15 @@
 #include "main.h"
 /**
- * @list: A pointer to an array of strings, where the first element is 
+ * entry - The function checks if a given
+ * executable file exists and is executable
+ * and if not, searches for it
+ * in the directories listed in the PATH environment variable and executes it.
+ * @list: A pointer to an array of strings, where the first element is
  * the command to be executed and the rest are its arguments.
  * @exe: The name of the executable file being executed.
  * @environp: environp is a pointer to an array of strings that represent
- * the environment variables of the current process. 
- * 
- * Return: an integer value, which could be either 0 
+ * the environment variables of the current process.
+ * Return: an integer value, which could be either 0.
  * or 127 depending on the execution of the code.
  */
 int entry(char **list, char *exe, char **environp)

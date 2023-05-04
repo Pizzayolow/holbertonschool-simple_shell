@@ -16,16 +16,17 @@ int main(int argc, char **argv, char **envp)
 
 	(void)argc;
 	while (input != -1)
-	{		
+	{
 		char *buffer = NULL;
 		size_t size = 0;
+
 		input = 0;
-		
+
 		if (isatty(STDIN_FILENO))
 		{
 			printf("$ ");
 		}
-		
+
 		input = getline(&buffer, &size, stdin);
 		if (input && is_empty(buffer) == 0)
 		{
@@ -33,6 +34,5 @@ int main(int argc, char **argv, char **envp)
 		}
 		free(buffer);
 	}
-	
 	return (0);
 }

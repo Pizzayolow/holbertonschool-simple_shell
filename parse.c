@@ -1,15 +1,16 @@
 /**
 * parse - Parses a command and executes it
+* @input: input given
 * @chaine: The command string to parse
 * @exe: The name of the executable file
-* @environ: An array of strings containing the environment variables
+* @environp: An array of strings containing the environment variables
 *
 * Return: 0 on success, -1 on failure
 */
 #include "main.h"
 
 int parse(char *chaine, int input, char *exe, char **environp)
-{		
+{
 	char **list = NULL;
 	int i = 0, nb_arg = 0;
 	char *token = NULL;
@@ -21,7 +22,7 @@ int parse(char *chaine, int input, char *exe, char **environp)
 	{
 		add_node_end(&head, token);
 		token = strtok(NULL, " ");
-	}	
+	}
 	list = malloc(sizeof(char *) * (nb_arg + 1));
 	if (list == NULL)
 	{

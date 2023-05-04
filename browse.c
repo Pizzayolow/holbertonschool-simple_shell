@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * @path: A string containing multiple directories separated by colons (":").
- * @list: The parameter "list" is a pointer to a char pointer, 
- * 
- * Return: The function `browse` returns a `char**`. 
- * If the function successfully finds an executable file in one of 
- * the directories specified in the `path` argument, it returns 
+ * browse - The function takes a path and a list of strings.
+ * @path: A string containing multiple directories separated by colons.
+ * @list: The parameter "list" is a pointer to a char pointer.
+ * Return: The function `browse` returns a `char**`.
+ * If the function successfully finds an executable file in one of.
+ * the directories specified in the `path` argument, it returns.
  * the modified `list` argument with the path to the executable file.
  * If it does not find an executable file, it returns `NULL`.
  */
