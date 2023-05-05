@@ -9,7 +9,7 @@
  * the modified `list` argument with the path to the executable file.
  * If it does not find an executable file, it returns `NULL`.
  */
-char **browse(char *path, char **list)
+int browse(char *path, char **list, node_t **first_node)
 {
 	char *dir = NULL;
 	char *prog = NULL;
@@ -22,7 +22,7 @@ char **browse(char *path, char **list)
 		if (prog == NULL)
 		{
 			free(path);
-			return (NULL);
+			return (-1);
 		}
 		strcpy(prog, dir);
 		strcat(prog, "/");
@@ -30,12 +30,22 @@ char **browse(char *path, char **list)
 		ret = access(prog, X_OK);
 		if (ret == 0)
 		{
-			list[0] = prog;
+			free(list[0]);
+			list[0] = NULL;
+			list[0] = malloc((strlen(prog) + 1) * sizeof(char));
+			if (list[0] == NULL)
+			{
+				free(prog);
+				return (-1);
+			}
+			strcpy(list[0], prog);
+			list[0][strlen(prog)] = '\0';
+			(*first_node)->str = list[0];
 			free(prog);
-			return (list);
+			return (1);
 		}
 		free(prog);
 		dir = strtok(NULL, ":");
 	}
-	return (NULL);
+	return (0);
 }

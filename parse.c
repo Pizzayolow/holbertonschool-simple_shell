@@ -36,7 +36,7 @@ int parse(char *chaine, int input, char *exe, char **environp)
 		temp = temp->next;
 	}
 	list[i] = NULL;
-	entry(list, exe, environp);
+	entry(list, exe, environp, head);
 	free_nodes(head);
 	return (0);
 }

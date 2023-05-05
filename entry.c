@@ -12,7 +12,7 @@
  * Return: an integer value, which could be either 0.
  * or 127 depending on the execution of the code.
  */
-int entry(char **list, char *exe, char **environp)
+int entry(char **list, char *exe, char **environp, node_t *head)
 {
 	int ret = 0;
 	char *path = NULL;
@@ -21,13 +21,13 @@ int entry(char **list, char *exe, char **environp)
 	if (ret != 0)
 	{
 		path = _getenvdup("PATH", environp);
-		if (path == NULL || browse(path, list) == NULL)
+		if (path == NULL || browse(path, list, &head) == 0)
 		{
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
 			free(path);
 			free(list);
 			return (127);
-		} 
+		}
 		free(path);
 	}
 	exec(list, environp);
