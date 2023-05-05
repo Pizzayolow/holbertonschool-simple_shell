@@ -3,6 +3,7 @@
  * browse - The function takes a path and a list of strings.
  * @path: A string containing multiple directories separated by colons.
  * @list: The parameter "list" is a pointer to a char pointer.
+ * @head: the first node
  * Return: The function `browse` returns a `char**`.
  * If the function successfully finds an executable file in one of.
  * the directories specified in the `path` argument, it returns.

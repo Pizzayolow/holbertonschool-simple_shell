@@ -7,8 +7,8 @@
  * @list: A pointer to an array of strings, where the first element is
  * the command to be executed and the rest are its arguments.
  * @exe: The name of the executable file being executed.
- * @environp: environp is a pointer to an array of strings that represent
- * the environment variables of the current process.
+ * @environp: environp is a pointer to an array of strings
+ * @head: the first node
  * Return: an integer value, which could be either 0.
  * or 127 depending on the execution of the code.
  */
