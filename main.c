@@ -30,7 +30,6 @@ int main(int argc, char **argv, char **envp)
 		input = getline(&buffer, &size, stdin);
 		if (input != -1 && is_empty(buffer) == 0)
 		{
-			printf("buffer = %s\n", buffer);
 			parse(buffer, input, exe, environ);
 		}
 		free(buffer);
