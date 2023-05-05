@@ -20,13 +20,13 @@ int entry(char **list, char *exe, char **environp, node_t *head)
 	ret = access(list[0], X_OK);
 	if (ret != 0)
 	{
-		path = _getenvdup("PATH", environp);
+		path = _getenvdup("PATH=", environp);
 		if (path == NULL || browse(path, list, &head) == 0)
 		{
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
 			free(path);
 			free(list);
-			return (127);
+			exit (127);
 		}
 		free(path);
 	}
