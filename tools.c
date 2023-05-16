@@ -32,11 +32,14 @@ char *_getenvdup(char *name, char **environp)
 	char *path_env = NULL;
 	char *path = NULL;
 
-	if (name == NULL)
+	if (name == NULL || is_empty(name)== 0)
+	{
 		return (NULL);
+	}
 
 	for (i = 0; environp[i] != NULL; i++)
 	{
+
 		if (strncmp(name, environp[i], size_len) == 0)
 		{
 			if (strlen(environp[i]) == 0)
