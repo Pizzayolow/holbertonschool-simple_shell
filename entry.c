@@ -21,7 +21,6 @@ int entry(char **list, char *exe, char **environp, node_t *head)
 	if (ret != 0)
 	{
 		path = _getenvdup("PATH=", environp);
-		printf("path = [%s]\n", path);
 		if (path == NULL || browse(path, list, &head) == 0)
 		{
 			fprintf(stderr, "%s: 1: %s: not found\n", exe, list[0]);
