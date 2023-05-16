@@ -39,6 +39,10 @@ char *_getenvdup(char *name, char **environp)
 	{
 		if (strncmp(name, environp[i], size_len) == 0)
 		{
+			if (strlen(environp[i]) == 0)
+			{
+				return (NULL);
+			}
 			path_env = environp[i] + size_len + 1;
 			path = strdup(path_env);
 			if (path == NULL)
